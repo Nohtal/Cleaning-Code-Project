@@ -63,7 +63,7 @@ tidy.data<-data.frame(tidy.data)
 
 
 s<-split(tidy.data,tidy.data$activity)
-q<-3
+q<-30
 
 subject<-list()
 activities<-list()
@@ -99,7 +99,8 @@ for (i in 1:6){
 
 
 activities<-data.frame(activities)
-write.table(activities,file = 'tidy_data.txt',row.name = FALSE)
+y.df <- data.frame(lapply(activities, as.character), stringsAsFactors=FALSE)
+write.table(y.df,file = 'tidy_data.txt',row.name = F)
 
 
 
